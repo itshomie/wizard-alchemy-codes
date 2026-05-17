@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { lastCheckedLabel, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/contact/")!;
+---
+
+<BaseLayout title={page.title} description={page.description} pathname="/contact/">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Corrections and updates</p>
+        <h1>Contact</h1>
+        <p class="lead">
+          Send corrections for expired codes, missing potions, material sources,
+          or outdated official links.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Contact topics">
+        <p class="eyebrow">Useful reports</p>
+        <ul class="quick-list">
+          <li><span>Code status</span><strong>Working or expired</strong></li>
+          <li><span>Patch data</span><strong>Potions and materials</strong></li>
+          <li><span>Links</span><strong>Discord or wiki changes</strong></li>
+          <li><span>Corrections</span><strong>Exact source preferred</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Email</h2>
+      <p>
+        For now, use <a href="mailto:hello@wizardalchemycodes.com">hello@wizardalchemycodes.com</a>.
+        Include the page URL, the correction, and any source link you used.
+      </p>
+      <h2>Code Reports</h2>
+      <p>
+        If you report a new code, include whether you personally tested it, the
+        server age, and the exact reward text shown in-game.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

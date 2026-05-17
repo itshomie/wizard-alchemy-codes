@@ -1,0 +1,60 @@
+---
+import { lastCheckedLabel } from "../data/site";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  dateLabel?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow = "Wizard Alchemy Roblox",
+  title,
+  description,
+  dateLabel = `Last checked: ${lastCheckedLabel}`,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+      <div class="meta-row">
+        <span class="badge">{dateLabel}</span>
+        <span class="badge">Unofficial fan guide</span>
+      </div>
+      {
+        primaryHref && primaryLabel && (
+          <div class="cta-row">
+            <a class="button" href={primaryHref}>{primaryLabel}</a>
+            {
+              secondaryHref && secondaryLabel && (
+                <a class="button secondary" href={secondaryHref}>{secondaryLabel}</a>
+              )
+            }
+          </div>
+        )
+      }
+    </div>
+    <aside class="hero-visual" aria-label="Guide highlights">
+      <p class="eyebrow">Quick route</p>
+      <ul class="quick-list">
+        <li><span>Redeem codes</span><strong>Race Rerolls</strong></li>
+        <li><span>Check race</span><strong>Keep or reroll</strong></li>
+        <li><span>Brew potions</span><strong>Unlock spells</strong></li>
+        <li><span>Farm materials</span><strong>Upgrade route</strong></li>
+      </ul>
+    </aside>
+  </div>
+</section>

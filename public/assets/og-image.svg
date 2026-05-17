@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f6f7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="#eef5ef"/>
+  <path d="M0 470h1200v160H0z" fill="#171b18"/>
+  <text x="80" y="170" fill="#171b18" font-family="Arial, sans-serif" font-size="78" font-weight="800">Wizard Alchemy Codes</text>
+  <text x="82" y="245" fill="#5a635f" font-family="Arial, sans-serif" font-size="34">Working Roblox codes, Race Rerolls, potions, materials, and guides.</text>
+  <rect x="82" y="315" width="235" height="76" rx="8" fill="#55326b"/>
+  <text x="118" y="365" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="800">WIZARD</text>
+  <rect x="348" y="315" width="250" height="76" rx="8" fill="#0f8b72"/>
+  <text x="384" y="365" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="800">RELEASE</text>
+  <circle cx="965" cy="250" r="95" fill="#ffffff" stroke="#171b18" stroke-width="18"/>
+  <path d="M910 260h110M965 205v110" stroke="#c86b2c" stroke-width="22" stroke-linecap="round"/>
+  <path d="M805 470h285" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+</svg>

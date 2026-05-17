@@ -1,0 +1,73 @@
+---
+interface CodeItem {
+  code: string;
+  reward: string;
+  status: string;
+  lastTested: string;
+}
+
+interface Props {
+  codes: CodeItem[];
+  caption?: string;
+}
+
+const { codes, caption = "Active Wizard Alchemy codes" } = Astro.props;
+
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC"
+  }).format(new Date(`${date}T00:00:00Z`));
+---
+
+<table class="data-table code-table">
+  <caption>{caption}</caption>
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Reward</th>
+      <th scope="col">Status</th>
+      <th scope="col">Last Tested</th>
+      <th scope="col">Copy</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      codes.map((item) => (
+        <tr>
+          <td class="code-cell">{item.code}</td>
+          <td>{item.reward}</td>
+          <td>
+            <span class="status status-working">{item.status}</span>
+          </td>
+          <td>{formatDate(item.lastTested)}</td>
+          <td>
+            <button class="copy-button" type="button" data-copy={item.code}>
+              Copy
+            </button>
+          </td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const code = button.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(code);
+        const previous = button.textContent;
+        button.textContent = "Copied";
+        window.setTimeout(() => {
+          button.textContent = previous;
+        }, 1400);
+      } catch {
+        button.textContent = code;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,153 @@
+---
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { materialFaqs } from "../data/faqs";
+import { materials } from "../data/materials";
+import { lastCheckedLabel, officialLinks, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/wizard-alchemy-materials/")!;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/wizard-alchemy-materials/"
+  pageType="Article"
+  faq={materialFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Farming guide</p>
+        <h1>Wizard Alchemy Materials Guide</h1>
+        <p class="lead">
+          Materials decide what you can brew. Use this guide to track Magic
+          Power, drop sources, best use, and whether an item is worth keeping.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+          <span class="badge">Drops and chests</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Material route">
+        <p class="eyebrow">Material loop</p>
+        <ul class="quick-list">
+          <li><span>Gather nodes</span><strong>Starter items</strong></li>
+          <li><span>Fight enemies</span><strong>Mid drops</strong></li>
+          <li><span>Open chests</span><strong>Shard chances</strong></li>
+          <li><span>Keep rares</span><strong>Craft later</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>How Materials Work</h2>
+        <p>
+          Materials are the fuel for potions. Most materials add Magic Power,
+          while elemental shards help steer potion elements. Good material
+          management makes potion crafting much more predictable.
+        </p>
+
+        <h2>All Wizard Alchemy Materials</h2>
+        <table class="data-table">
+          <caption>Wizard Alchemy material table</caption>
+          <thead>
+            <tr>
+              <th scope="col">Material</th>
+              <th scope="col">Magic Score</th>
+              <th scope="col">How to Get</th>
+              <th scope="col">Best Use</th>
+              <th scope="col">Keep or Sell</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              materials.map((material) => (
+                <tr>
+                  <td><strong>{material.name}</strong></td>
+                  <td>{material.magicPower}</td>
+                  <td>{material.source}</td>
+                  <td>{material.bestUse}</td>
+                  <td>{material.keepOrSell}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <h2>Material Magic Score</h2>
+        <p>
+          Magic Score is the value a material contributes to potion crafting.
+          High Magic Score materials are harder to replace, so avoid selling
+          them until you know your potion plan.
+        </p>
+
+        <h2>Where to Get Each Material</h2>
+        <p>
+          Starter ingredients come from simple nodes and chests. Enemy drops
+          start filling mid-tier recipes, while bosses and tougher enemies help
+          with late-game Magic totals.
+        </p>
+
+        <h2>Enemy Drops</h2>
+        <p>
+          Early enemies are useful for repeatable materials such as Goblin
+          Finger, Goblin Bone, Golden Tooth, Dwarf Emblem, and Copper Earring.
+          Farm the enemies that match the material gap in your potion recipe.
+        </p>
+
+        <h2>Boss Drops</h2>
+        <p>
+          Bosses are worth checking when you need high Magic Power materials or
+          better late-game crafting fuel. Do not burn time on boss farming if
+          your current potion target only needs starter materials.
+        </p>
+
+        <h2>Chest Rewards</h2>
+        <p>
+          Chests are a flexible source because they can fill missing materials
+          and elemental shards. Make chest routes part of your normal farming
+          loop instead of treating them as a bonus only.
+        </p>
+
+        <h2>Best Early Game Materials</h2>
+        <p>
+          Blueberry, Seagull Egg, and Withered Mushroom are enough to learn the
+          basic crafting flow. Move into enemy drops once you need higher Magic
+          values.
+        </p>
+
+        <h2>Which Materials to Keep</h2>
+        <p>
+          Keep elemental shards, rare drops, high Magic Power materials, and any
+          ingredient that appears in a potion route you are actively building.
+        </p>
+
+        <h2>Which Materials to Sell</h2>
+        <p>
+          Sell only low-value duplicates when inventory space matters. If you
+          are unsure, keep the material until you check the potion guide.
+        </p>
+
+        <h2>More Guides</h2>
+        <GuideLinks />
+      </article>
+      <aside class="aside">
+        <h2>Use Materials in Potions</h2>
+        <p>
+          After checking drop sources, open the <a href="/wizard-alchemy-potions/">Potions Guide</a>
+          to match materials with Magic value targets.
+        </p>
+        <p>
+          <a href={officialLinks.sourceBloxMaterials} rel="nofollow">Community material data source</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={materialFaqs} />
+</BaseLayout>

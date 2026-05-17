@@ -1,0 +1,154 @@
+---
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { potionFaqs } from "../data/faqs";
+import { potions } from "../data/potions";
+import { lastCheckedLabel, officialLinks, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/wizard-alchemy-potions/"
+  pageType="Article"
+  faq={potionFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Crafting guide</p>
+        <h1>Wizard Alchemy Potions Guide</h1>
+        <p class="lead">
+          Potions turn materials into spells. Track Magic value targets, choose
+          starter potions first, and refine only the potions that support your
+          farming or damage route.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+          <span class="badge">Potion calculator planned</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Potion route">
+        <p class="eyebrow">Crafting route</p>
+        <ul class="quick-list">
+          <li><span>Materials</span><strong>Magic Power</strong></li>
+          <li><span>Alchemy table</span><strong>Potion target</strong></li>
+          <li><span>Potion use</span><strong>Spell unlock</strong></li>
+          <li><span>Duplicates</span><strong>Refine later</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>How Potions Work in Wizard Alchemy</h2>
+        <p>
+          Potions are brewed from materials. Each material adds Magic Power, and
+          the total value helps determine which potion range you can reach. This
+          makes material planning more important than random crafting.
+        </p>
+
+        <h2>How to Brew Potions</h2>
+        <ol>
+          <li>Collect materials from nodes, enemies, bosses, or chests.</li>
+          <li>Open the Alchemy table.</li>
+          <li>Add materials until the total Magic value matches your target range.</li>
+          <li>Brew the potion and use it to unlock or improve spells.</li>
+        </ol>
+
+        <h2>Potion Magic Value Explained</h2>
+        <p>
+          Magic value is the most important crafting number. If your total is
+          too low, you will stay in starter potion ranges. If it is too high or
+          uses the wrong materials, you may miss the potion route you wanted.
+        </p>
+
+        <h2>All Wizard Alchemy Potions</h2>
+        <table class="data-table">
+          <caption>Known Wizard Alchemy potion targets</caption>
+          <thead>
+            <tr>
+              <th scope="col">Potion</th>
+              <th scope="col">Magic Value</th>
+              <th scope="col">Stage</th>
+              <th scope="col">Best Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              potions.map((potion) => (
+                <tr>
+                  <td><strong>{potion.name}</strong></td>
+                  <td>{potion.magic}</td>
+                  <td>{potion.stage}</td>
+                  <td>{potion.role}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <h2>Best Starter Potions</h2>
+        <p>
+          Wind Blade, Rock Blast, and Ice Spike are the first targets to learn
+          because their Magic values are reachable with common starter
+          materials.
+        </p>
+
+        <h2>Best Damage Potions</h2>
+        <p>
+          Fire Arrow, Meteorite, Dragon Breath, and Radiant Sword are stronger
+          damage goals. Do not chase them until you can reliably farm mid and
+          high Magic Power materials.
+        </p>
+
+        <h2>Best Farming Potions</h2>
+        <p>
+          A good farming potion is one that clears normal enemies quickly and
+          does not require rare materials every time. Choose a route that matches
+          your race bonuses when possible.
+        </p>
+
+        <h2>How to Refine Potions</h2>
+        <p>
+          Refining uses duplicate potions to improve grade and performance. Save
+          duplicates for potions you actually use instead of refining every
+          random craft.
+        </p>
+
+        <h2>Potion Purity and Grade Explained</h2>
+        <p>
+          Purity and grade represent the quality of the potion result. Higher
+          quality can improve a spell route, but early players should first
+          focus on unlocking reliable spells and farming better materials.
+        </p>
+
+        <h2>Next Feature: Potion Calculator</h2>
+        <p>
+          The planned tool page will let players choose a target potion, enter
+          available materials, and see whether their Magic value is enough.
+        </p>
+
+        <h2>More Guides</h2>
+        <GuideLinks />
+      </article>
+      <aside class="aside">
+        <h2>Need Ingredients?</h2>
+        <p>
+          Use the <a href="/wizard-alchemy-materials/">Materials Guide</a> to
+          check Magic Power and farming sources before brewing.
+        </p>
+        <p>
+          <a href={officialLinks.sourceBloxPotions} rel="nofollow">Community potion data source</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={potionFaqs} />
+</BaseLayout>

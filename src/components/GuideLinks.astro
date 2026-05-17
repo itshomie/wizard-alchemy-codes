@@ -1,0 +1,40 @@
+---
+const guides = [
+  {
+    title: "Wizard Alchemy Race Tier List",
+    href: "/wizard-alchemy-race-tier-list/",
+    text: "Choose which race to keep before spending rerolls."
+  },
+  {
+    title: "Wizard Alchemy Beginner Guide",
+    href: "/wizard-alchemy-beginner-guide/",
+    text: "Follow a clean early route from codes to first potions."
+  },
+  {
+    title: "Wizard Alchemy Potions Guide",
+    href: "/wizard-alchemy-potions/",
+    text: "Understand Magic value, potion targets, and refining."
+  },
+  {
+    title: "Wizard Alchemy Materials Guide",
+    href: "/wizard-alchemy-materials/",
+    text: "Track material sources, Magic Power, and keep-or-sell choices."
+  },
+  {
+    title: "Discord, Trello and Wiki Links",
+    href: "/wizard-alchemy-discord-trello-wiki/",
+    text: "Find official and community resources safely."
+  }
+];
+---
+
+<div class="guide-list">
+  {
+    guides.map((guide) => (
+      <a class="guide-link" href={guide.href}>
+        <strong>{guide.title}</strong>
+        <span>{guide.text}</span>
+      </a>
+    ))
+  }
+</div>

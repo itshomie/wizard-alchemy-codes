@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" role="img" aria-labelledby="title desc">
+  <title id="title">Wizard alchemy workbench illustration</title>
+  <desc id="desc">A stylized open book, potion bottle, wand, and material jars for a Wizard Alchemy guide site.</desc>
+  <rect width="760" height="760" fill="#edf4ef"/>
+  <path d="M68 538h624v70H68z" fill="#171b18"/>
+  <path d="M128 275c64-26 122-24 176 7v218c-63-27-122-29-176-5V275Z" fill="#fff" stroke="#171b18" stroke-width="12"/>
+  <path d="M456 275c-64-26-122-24-176 7v218c63-27 122-29 176-5V275Z" fill="#fff" stroke="#171b18" stroke-width="12"/>
+  <path d="M292 284v220" stroke="#171b18" stroke-width="10"/>
+  <path d="M164 335h78M164 378h92M164 421h70" stroke="#0f8b72" stroke-width="12" stroke-linecap="round"/>
+  <path d="M342 335h72M342 378h88M342 421h62" stroke="#c86b2c" stroke-width="12" stroke-linecap="round"/>
+  <path d="M542 210h88v210c0 42-24 72-44 72s-44-30-44-72V210Z" fill="#fff" stroke="#171b18" stroke-width="12"/>
+  <path d="M560 258h52v154c0 22-12 38-26 38s-26-16-26-38V258Z" fill="#0f8b72"/>
+  <path d="M532 210h108" stroke="#171b18" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="612" cy="170" r="32" fill="#55326b" stroke="#171b18" stroke-width="10"/>
+  <circle cx="529" cy="154" r="18" fill="#c86b2c" stroke="#171b18" stroke-width="8"/>
+  <path d="M522 548 658 412" stroke="#55326b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M646 400l38-38" stroke="#c86b2c" stroke-width="18" stroke-linecap="round"/>
+  <path d="M111 550c35-23 78-32 129-26M344 524c49-7 91 1 126 24" stroke="#c86b2c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M96 170c26 15 48 15 74 0-15 26-15 48 0 74-26-15-48-15-74 0 15-26 15-48 0-74Z" fill="#0f8b72"/>
+  <path d="M420 110c20 12 38 12 58 0-12 20-12 38 0 58-20-12-38-12-58 0 12-20 12-38 0-58Z" fill="#c86b2c"/>
+</svg>

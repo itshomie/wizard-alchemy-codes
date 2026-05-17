@@ -1,0 +1,156 @@
+---
+import "../styles/global.css";
+import { navigation, pages, site } from "../data/site";
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  item: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  pathname: string;
+  pageType?: "WebPage" | "Article";
+  faq?: FaqItem[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title,
+  description,
+  pathname,
+  pageType = "WebPage",
+  faq = [],
+  breadcrumbs = []
+} = Astro.props;
+
+const canonical = new URL(pathname, site.url).toString();
+const ogImage = new URL(site.defaultOgImage, site.url).toString();
+const currentPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+
+const breadcrumbItems =
+  breadcrumbs.length > 0
+    ? breadcrumbs
+    : [
+        { name: "Home", item: "/" },
+        {
+          name:
+            pages.find((page) => page.pathname === pathname)?.title ??
+            site.shortName,
+          item: pathname
+        }
+      ];
+
+const schemaGraph: Record<string, unknown>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": pageType,
+    name: title,
+    description,
+    url: canonical,
+    isPartOf: {
+      "@type": "WebSite",
+      name: site.name,
+      url: site.url
+    },
+    about: "Wizard Alchemy Roblox"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.item, site.url).toString()
+    }))
+  }
+];
+
+if (faq.length > 0) {
+  schemaGraph.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  });
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={pageType === "Article" ? "article" : "website"} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({ "@graph": schemaGraph })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Wizard Alchemy Codes home">
+          <span class="brand-mark" aria-hidden="true">WA</span>
+          <span>{site.shortName}</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          {
+            navigation.map((item) => (
+              <a
+                href={item.href}
+                aria-current={currentPath === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <strong>{site.name}</strong>
+          <p>
+            Unofficial fan-made guide site. We are not affiliated with Roblox,
+            Muggle Academy, or the Wizard Alchemy development team.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/cookie-policy/">Cookies</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "code": "WIZARD",
+    "reward": "5 Race Rerolls",
+    "status": "Working",
+    "lastTested": "2026-05-17",
+    "notes": "Confirmed on the official Roblox game description and current guide coverage."
+  },
+  {
+    "code": "RELEASE",
+    "reward": "5 Race Rerolls",
+    "status": "Working",
+    "lastTested": "2026-05-17",
+    "notes": "Confirmed on the official Roblox game description and current guide coverage."
+  }
+]

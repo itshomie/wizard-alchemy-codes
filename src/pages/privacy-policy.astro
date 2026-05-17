@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { lastCheckedLabel, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/privacy-policy/")!;
+---
+
+<BaseLayout title={page.title} description={page.description} pathname="/privacy-policy/">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Site policy</p>
+      <h1>Privacy Policy</h1>
+      <p class="lead">This policy explains how this guide site handles basic visitor information.</p>
+      <div class="meta-row">
+        <span class="badge">Last updated: {lastCheckedLabel}</span>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Information We Collect</h2>
+      <p>
+        The static MVP site does not require account creation and does not ask
+        for Roblox login details. Standard hosting logs may include IP address,
+        browser type, referring page, and request time.
+      </p>
+      <h2>Analytics and Ads</h2>
+      <p>
+        If analytics or ads are added later, this policy should be updated to
+        describe the provider, cookie behavior, and opt-out options.
+      </p>
+      <h2>Third-Party Links</h2>
+      <p>
+        The site links to Roblox, Discord, and community resources. Those sites
+        have their own privacy policies.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        For privacy questions, contact
+        <a href="mailto:hello@wizardalchemycodes.com">hello@wizardalchemycodes.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

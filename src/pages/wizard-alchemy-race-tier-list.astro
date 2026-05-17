@@ -1,0 +1,155 @@
+---
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { raceFaqs } from "../data/faqs";
+import { races, tiers } from "../data/races";
+import { lastCheckedLabel, officialLinks, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/wizard-alchemy-race-tier-list/")!;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/wizard-alchemy-race-tier-list/"
+  pageType="Article"
+  faq={raceFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Race reroll guide</p>
+        <h1>Wizard Alchemy Race Tier List</h1>
+        <p class="lead">
+          Use this race tier list before spending your free Race Rerolls from
+          Wizard Alchemy codes. The safest route is to keep strong S and A tier
+          races and reroll weak starter races later.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+          <span class="badge">Early launch ranking</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Race reroll highlights">
+        <p class="eyebrow">Reroll rule</p>
+        <ul class="quick-list">
+          <li><span>S Tier</span><strong>Keep</strong></li>
+          <li><span>A Tier</span><strong>Usually keep</strong></li>
+          <li><span>B Tier</span><strong>Keep early</strong></li>
+          <li><span>C Tier</span><strong>Reroll later</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>Best Races in Wizard Alchemy</h2>
+        <p>
+          Thestrals and Stellar Ambassador are the main keep targets in current
+          launch rankings. If you hit either one, stop rerolling unless a later
+          balance patch changes the race bonuses.
+        </p>
+
+        <table class="data-table">
+          <caption>Wizard Alchemy race rankings</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tier</th>
+              <th scope="col">Race</th>
+              <th scope="col">Rarity</th>
+              <th scope="col">Drop Rate</th>
+              <th scope="col">Best For</th>
+              <th scope="col">Advice</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              races.map((race) => (
+                <tr>
+                  <td><span class={`tier tier-${race.tier.toLowerCase()}`}>{race.tier}</span></td>
+                  <td><strong>{race.name}</strong><br /><span class="source-note">{race.notes}</span></td>
+                  <td>{race.rarity}</td>
+                  <td>{race.dropRate}</td>
+                  <td>{race.bestFor}</td>
+                  <td>{race.keepAdvice}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        {
+          tiers.map((tier) => (
+            <>
+              <h2>{tier} Tier Races</h2>
+              <p>
+                {races
+                  .filter((race) => race.tier === tier)
+                  .map((race) => race.name)
+                  .join(", ")}
+              </p>
+            </>
+          ))
+        }
+
+        <h2>Best Race for Beginners</h2>
+        <p>
+          Werewolf is a comfortable beginner keep because its balanced bonuses
+          make early farming smoother. It is not the best final target, but it
+          is better than burning every reroll while you are still learning the
+          game.
+        </p>
+
+        <h2>Best Race for Damage</h2>
+        <p>
+          Thestrals is the high-value damage target. Fiendish Demon and Ice
+          Crystal can also fit damage routes if your potion path leans into fire
+          or ice.
+        </p>
+
+        <h2>Best Race for Farming</h2>
+        <p>
+          Stellar Ambassador is a strong farming race because attack and speed
+          benefits help nearly every route. Death Eater and Werewolf are useful
+          alternatives if you are not chasing a rare top-tier race yet.
+        </p>
+
+        <h2>Should You Reroll Your Current Race?</h2>
+        <p>
+          Keep S tier races. Usually keep A tier races unless you have many
+          spare rerolls. Keep B tier races while progressing, then reroll when
+          you have enough spins saved. Reroll C tier races after redeeming the
+          latest <a href="/">Wizard Alchemy codes</a>.
+        </p>
+
+        <h2>How to Get More Race Rerolls</h2>
+        <p>
+          Redeem every working code first. After that, watch update events,
+          official announcements, and any in-game reward sources that add reroll
+          currency.
+        </p>
+
+        <h2>Next Guides</h2>
+        <GuideLinks />
+      </article>
+      <aside class="aside">
+        <h2>Data Note</h2>
+        <p>
+          Race rankings can change quickly after balance patches. Check this
+          page weekly and before spending a large batch of rerolls.
+        </p>
+        <p>
+          Need more rerolls? Start with the <a href="/">latest Wizard Alchemy codes</a>.
+        </p>
+        <p>
+          <a href={officialLinks.sourceBloxRaces} rel="nofollow">Community race data source</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={raceFaqs} />
+</BaseLayout>

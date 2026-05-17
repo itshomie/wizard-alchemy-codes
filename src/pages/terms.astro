@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { lastCheckedLabel, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/terms/")!;
+---
+
+<BaseLayout title={page.title} description={page.description} pathname="/terms/">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Site policy</p>
+      <h1>Terms</h1>
+      <p class="lead">These terms describe the basic rules for using this fan-made guide site.</p>
+      <div class="meta-row">
+        <span class="badge">Last updated: {lastCheckedLabel}</span>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Unofficial Fan Site</h2>
+      <p>
+        Wizard Alchemy Codes & Guides is not affiliated with Roblox, Muggle
+        Academy, or the Wizard Alchemy development team.
+      </p>
+      <h2>Guide Accuracy</h2>
+      <p>
+        We work to keep codes and guide data current, but game updates can
+        change rewards, menus, drops, races, and potion values without notice.
+        Verify important decisions in-game.
+      </p>
+      <h2>No Account Requests</h2>
+      <p>
+        We will never ask for your Roblox password or private account details.
+      </p>
+      <h2>External Links</h2>
+      <p>
+        External links are provided for convenience. You are responsible for
+        checking the safety and terms of any third-party page you visit.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

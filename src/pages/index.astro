@@ -1,0 +1,135 @@
+---
+import CodeTable from "../components/CodeTable.astro";
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import codes from "../data/codes.json";
+import { homeFaqs } from "../data/faqs";
+import { lastCheckedLabel, officialLinks, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/")!;
+const activeCodes = codes.filter((code) => code.status === "Working");
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/"
+  faq={homeFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Wizard Alchemy Roblox</p>
+        <h1>Wizard Alchemy Codes</h1>
+        <p class="lead">
+          Get the latest working Wizard Alchemy codes for Roblox. Redeem these
+          codes for free Race Rerolls before you start brewing potions and
+          fighting enemies.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last checked: {lastCheckedLabel}</span>
+          <span class="badge">2 working codes</span>
+        </div>
+        <CodeTable codes={activeCodes} />
+      </div>
+      <aside class="hero-visual" aria-label="Wizard Alchemy next steps">
+        <p class="eyebrow">After redeeming</p>
+        <ul class="quick-list">
+          <li><span>Spend rerolls</span><strong>After checking tiers</strong></li>
+          <li><span>Start guide</span><strong>Beginner route</strong></li>
+          <li><span>Crafting</span><strong>Potions and materials</strong></li>
+          <li><span>Updates</span><strong>Discord and Roblox page</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>Expired Wizard Alchemy Codes</h2>
+        <p>There are currently no expired Wizard Alchemy codes.</p>
+
+        <h2>How to Redeem Wizard Alchemy Codes</h2>
+        <ol>
+          <li>Launch Wizard Alchemy on Roblox.</li>
+          <li>Open the settings or utilities menu. It is usually shown with a gear icon.</li>
+          <li>Find the code input box.</li>
+          <li>Enter a working code exactly as shown above.</li>
+          <li>Click Claim to receive the reward.</li>
+        </ol>
+        <p>
+          The code box can move between settings and utility menus during game
+          updates, so check both if you do not see it right away.
+        </p>
+
+        <h2>Why Are My Wizard Alchemy Codes Not Working?</h2>
+        <ul>
+          <li>The code expired after an update or milestone ended.</li>
+          <li>You typed the code with an extra space or wrong letter.</li>
+          <li>You already redeemed the code on your Roblox account.</li>
+          <li>You are on an old server that has not received the latest update.</li>
+          <li>The required tutorial or menu step is not available yet.</li>
+          <li>Roblox or the Wizard Alchemy server is delayed.</li>
+        </ul>
+        <p>
+          If a working code fails, rejoin a newer public server or private server
+          and try again before assuming the code has expired.
+        </p>
+
+        <h2>How to Get More Wizard Alchemy Codes</h2>
+        <p>
+          New codes are most likely to appear in the official Roblox game
+          description, the Muggle Academy Discord, Roblox group announcements, or
+          update posts. We keep unconfirmed strings out of the active table until
+          they appear on an official source or can be tested in-game.
+        </p>
+        <p class="source-note">
+          Source check: official Roblox page, current PCGamesN and Destructoid
+          code coverage, plus community wiki pages were reviewed on {lastCheckedLabel}.
+        </p>
+
+        <h2>What Is Wizard Alchemy?</h2>
+        <p>
+          Wizard Alchemy is a Roblox game about collecting materials, brewing
+          potions, unlocking spells, fighting enemies, and improving your wizard
+          through races and gear. Codes matter because Race Rerolls can change
+          your character build early.
+        </p>
+
+        <h2>What to Do After Redeeming Codes</h2>
+        <p>
+          Do not spend every Race Reroll blindly. Before using your rerolls,
+          check the <a href="/wizard-alchemy-race-tier-list/">Wizard Alchemy Race Tier List</a>
+          so you know which races are worth keeping.
+        </p>
+
+        <h2>More Wizard Alchemy Guides</h2>
+        <GuideLinks />
+
+        <h2>Update Log</h2>
+        <ul class="update-log">
+          <li>
+            {lastCheckedLabel}: Checked WIZARD and RELEASE. No expired codes
+            found. Added links to the race, potion, material, and beginner guides.
+          </li>
+          <li>May 16, 2026: Added initial working launch codes.</li>
+        </ul>
+      </article>
+      <aside class="aside">
+        <h2>Verification Note</h2>
+        <p>
+          Active codes are limited to codes we can verify from official or
+          current guide coverage. Extra community claims are watched but not
+          listed as working until confirmed.
+        </p>
+        <p>
+          <a href={officialLinks.robloxGame} rel="nofollow">Official Roblox game page</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={homeFaqs} />
+</BaseLayout>

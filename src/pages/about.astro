@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { lastCheckedLabel, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/about/")!;
+---
+
+<BaseLayout title={page.title} description={page.description} pathname="/about/">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">About this site</p>
+        <h1>About Wizard Alchemy Codes & Guides</h1>
+        <p class="lead">
+          This is an unofficial fan-made guide site for Wizard Alchemy players
+          who want fast codes, clear reroll advice, and practical crafting help.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Editorial standards">
+        <p class="eyebrow">Editorial focus</p>
+        <ul class="quick-list">
+          <li><span>Codes</span><strong>Verify first</strong></li>
+          <li><span>Guides</span><strong>Useful tables</strong></li>
+          <li><span>Updates</span><strong>Dates visible</strong></li>
+          <li><span>Affiliation</span><strong>Unofficial</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What We Cover</h2>
+      <p>
+        The MVP site covers working Wizard Alchemy codes, race reroll decisions,
+        beginner progression, potion crafting, material farming, and official or
+        community links.
+      </p>
+      <h2>How Updates Work</h2>
+      <p>
+        Codes should be checked daily. Race, Discord, and wiki pages should be
+        reviewed weekly. Potion and material pages should be updated after game
+        patches or when reliable new data appears.
+      </p>
+      <h2>Disclaimer</h2>
+      <p>
+        This site is not affiliated with Roblox, Muggle Academy, or the Wizard
+        Alchemy development team. Roblox and Wizard Alchemy belong to their
+        respective owners.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { linksFaqs } from "../data/faqs";
+import { lastCheckedLabel, officialLinks, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/wizard-alchemy-discord-trello-wiki/")!;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/wizard-alchemy-discord-trello-wiki/"
+  pageType="Article"
+  faq={linksFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Official and community links</p>
+        <h1>Wizard Alchemy Discord, Trello and Wiki Links</h1>
+        <p class="lead">
+          Use this page to find the Wizard Alchemy Roblox game, Discord invite,
+          Roblox group, community wiki resources, and current Trello status.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+          <span class="badge">Link safety checked</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Link checks">
+        <p class="eyebrow">Before clicking</p>
+        <ul class="quick-list">
+          <li><span>Roblox game</span><strong>Official page</strong></li>
+          <li><span>Discord</span><strong>Verify invite</strong></li>
+          <li><span>Trello</span><strong>Not confirmed</strong></li>
+          <li><span>Wiki</span><strong>Community data</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>Official Wizard Alchemy Game Link</h2>
+        <p>
+          Play from the official Roblox page:
+          <a href={officialLinks.robloxGame} rel="nofollow">Wizard Alchemy on Roblox</a>.
+          Bookmark the game page instead of clicking random mirror links.
+        </p>
+
+        <h2>Wizard Alchemy Discord Link</h2>
+        <p>
+          Current community guide coverage lists this Discord invite:
+          <a href={officialLinks.discord} rel="nofollow">Wizard Alchemy Discord</a>.
+          If the invite expires, check the Roblox game description or Roblox
+          group for a newer invite.
+        </p>
+
+        <h2>Wizard Alchemy Roblox Group</h2>
+        <p>
+          The Roblox community page for the developer group is
+          <a href={officialLinks.robloxGroup} rel="nofollow">Muggle Academy</a>.
+          Group posts can be useful for update notes, events, and code hints.
+        </p>
+
+        <h2>Is There a Wizard Alchemy Trello?</h2>
+        <p>
+          No official Wizard Alchemy Trello board is confirmed in the sources
+          reviewed on {lastCheckedLabel}. If an official Trello appears, this
+          page should be updated with the verified link and a note in the update
+          log.
+        </p>
+
+        <h2>Is There an Official Wizard Alchemy Wiki?</h2>
+        <p>
+          A fully official wiki is not confirmed. The most useful current wiki
+          resource is the community-maintained
+          <a href={officialLinks.bloxInformerWiki} rel="nofollow">BloxInformer Wizard Alchemy wiki</a>.
+        </p>
+
+        <h2>Best Community Resources</h2>
+        <ul>
+          <li>Official Roblox game page for code descriptions and game updates.</li>
+          <li>Muggle Academy Discord for announcements and community discussion.</li>
+          <li>Roblox group page for developer-side information.</li>
+          <li>Community wiki pages for potions, materials, races, and items.</li>
+        </ul>
+
+        <h2>Link Safety Tips</h2>
+        <ul>
+          <li>Do not enter your Roblox password on third-party pages.</li>
+          <li>Check that Roblox links use the real roblox.com domain.</li>
+          <li>Verify Discord invites through the game page or trusted guides.</li>
+          <li>Avoid any generator that promises free Robux or private codes.</li>
+        </ul>
+
+        <h2>More Guides</h2>
+        <GuideLinks />
+      </article>
+      <aside class="aside">
+        <h2>Need Tested Codes?</h2>
+        <p>
+          For active and expired code tracking, visit the
+          <a href="/">Wizard Alchemy Codes</a> page.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={linksFaqs} />
+</BaseLayout>

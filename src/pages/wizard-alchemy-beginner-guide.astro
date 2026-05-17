@@ -1,0 +1,138 @@
+---
+import FaqList from "../components/FaqList.astro";
+import GuideLinks from "../components/GuideLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { beginnerFaqs } from "../data/faqs";
+import { lastCheckedLabel, pages } from "../data/site";
+
+const page = pages.find((item) => item.pathname === "/wizard-alchemy-beginner-guide/")!;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  pathname="/wizard-alchemy-beginner-guide/"
+  pageType="Article"
+  faq={beginnerFaqs}
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">New player route</p>
+        <h1>Wizard Alchemy Beginner Guide</h1>
+        <p class="lead">
+          Start Wizard Alchemy with a clean route: redeem codes, finish the
+          tutorial, collect materials, brew potions, unlock spells, and spend
+          Race Rerolls only when you know what to keep.
+        </p>
+        <div class="meta-row">
+          <span class="badge">Last updated: {lastCheckedLabel}</span>
+          <span class="badge">MVP guide</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Beginner route">
+        <p class="eyebrow">First hour</p>
+        <ul class="quick-list">
+          <li><span>Step 1</span><strong>Redeem codes</strong></li>
+          <li><span>Step 2</span><strong>Finish tutorial</strong></li>
+          <li><span>Step 3</span><strong>Collect materials</strong></li>
+          <li><span>Step 4</span><strong>Brew potions</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap content-grid">
+      <article class="prose">
+        <h2>What Is Wizard Alchemy?</h2>
+        <p>
+          Wizard Alchemy is a Roblox progression game built around materials,
+          potion crafting, spell unlocks, races, and combat. Your early goal is
+          to build enough potion power to farm faster without wasting rerolls or
+          rare materials.
+        </p>
+
+        <h2>First Things to Do After Joining</h2>
+        <ol>
+          <li>Open the settings or utilities menu and redeem every working code.</li>
+          <li>Check your race and compare it with the race tier list.</li>
+          <li>Finish the tutorial prompts so every core menu is available.</li>
+          <li>Gather low-risk materials before fighting harder enemies.</li>
+        </ol>
+
+        <h2>Redeem Codes First</h2>
+        <p>
+          The current codes give Race Rerolls, which matter most before you lock
+          into longer farming sessions. Visit the <a href="/">Wizard Alchemy codes</a>
+          page before every new play session.
+        </p>
+
+        <h2>Finish the Tutorial</h2>
+        <p>
+          Follow the early prompts until you can gather, brew, fight, and open
+          the required menus. Do not judge the pacing until the alchemy table and
+          spell flow are unlocked.
+        </p>
+
+        <h2>How to Collect Materials</h2>
+        <p>
+          Materials come from gathering nodes, enemies, bosses, and chests.
+          Starter materials are useful because combining several low Magic Power
+          items can still reach early potion targets.
+        </p>
+
+        <h2>How to Brew Your First Potion</h2>
+        <ol>
+          <li>Collect a few starter materials.</li>
+          <li>Open the Alchemy table.</li>
+          <li>Add materials until the Magic value reaches an early potion target.</li>
+          <li>Brew the potion and use it to unlock or improve a spell.</li>
+        </ol>
+
+        <h2>How to Unlock Spells</h2>
+        <p>
+          Potions are the bridge between materials and spells. If your build
+          feels weak, the next useful upgrade is usually a better potion route,
+          not a random reroll.
+        </p>
+
+        <h2>How to Use Race Rerolls</h2>
+        <p>
+          Reroll Human once you have free spins. Stop if you land an S tier or
+          strong A tier race. If you land a B tier race, keep it until you have
+          enough extra rerolls to chase a higher tier safely.
+        </p>
+
+        <h2>Early Game Farming Tips</h2>
+        <ul>
+          <li>Keep elemental shards until you know which potion route you want.</li>
+          <li>Use chests to fill gaps in your material inventory.</li>
+          <li>Do not sell rare or high Magic Power materials just for quick cash.</li>
+          <li>Upgrade around one or two spells instead of spreading resources thin.</li>
+        </ul>
+
+        <h2>Beginner Mistakes to Avoid</h2>
+        <ul>
+          <li>Spending all Race Rerolls before checking the tier list.</li>
+          <li>Selling materials before learning potion Magic targets.</li>
+          <li>Ignoring chests when farming enemy drops.</li>
+          <li>Trying to craft late-game potions with only starter materials.</li>
+        </ul>
+
+        <h2>Next Guides to Read</h2>
+        <GuideLinks />
+      </article>
+      <aside class="aside">
+        <h2>Beginner Priority</h2>
+        <p>
+          Redeem codes first, then decide whether to keep your race. After that,
+          focus on potions and materials.
+        </p>
+        <p><a href="/wizard-alchemy-race-tier-list/">Check race tier list</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <FaqList items={beginnerFaqs} />
+</BaseLayout>

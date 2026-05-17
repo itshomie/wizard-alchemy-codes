@@ -46,11 +46,11 @@ export const pages = [
   {
     title: "Wizard Alchemy Potions Guide - Recipes, Magic Power & Refining",
     description:
-      "Learn how Wizard Alchemy potions work, including Magic value targets, starter potion priorities, refining, and spell unlocks.",
+      "Learn how Wizard Alchemy potions work, including Magic Power targets, starter potion priorities, refining, and spell unlocks.",
     pathname: "/wizard-alchemy-potions/"
   },
   {
-    title: "Wizard Alchemy Materials Guide - Locations, Drops & Magic Score",
+    title: "Wizard Alchemy Materials Guide - Locations, Drops & Magic Power",
     description:
       "Track Wizard Alchemy materials by Magic Power, drop source, farming priority, and best use for potion crafting.",
     pathname: "/wizard-alchemy-materials/"

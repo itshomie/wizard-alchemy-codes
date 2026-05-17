@@ -58,10 +58,13 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-materials/"
           <thead>
             <tr>
               <th scope="col">Material</th>
-              <th scope="col">Magic Score</th>
-              <th scope="col">How to Get</th>
+              <th scope="col">Type</th>
+              <th scope="col">Magic Power</th>
+              <th scope="col">Source</th>
+              <th scope="col">Enemy / Node</th>
               <th scope="col">Best Use</th>
               <th scope="col">Keep or Sell</th>
+              <th scope="col">Notes</th>
             </tr>
           </thead>
           <tbody>
@@ -69,28 +72,32 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-materials/"
               materials.map((material) => (
                 <tr>
                   <td><strong>{material.name}</strong></td>
+                  <td>{material.type}</td>
                   <td>{material.magicPower}</td>
                   <td>{material.source}</td>
+                  <td>{material.enemyOrNode}</td>
                   <td>{material.bestUse}</td>
                   <td>{material.keepOrSell}</td>
+                  <td>{material.notes}</td>
                 </tr>
               ))
             }
           </tbody>
         </table>
 
-        <h2>Material Magic Score</h2>
+        <h2>Material Magic Power</h2>
         <p>
-          Magic Score is the value a material contributes to potion crafting.
-          High Magic Score materials are harder to replace, so avoid selling
-          them until you know your potion plan.
+          Magic Power is the value a material contributes to potion crafting.
+          Some community resources may call this Magic Score, but this guide
+          uses Magic Power consistently. High Magic Power materials are harder
+          to replace, so avoid selling them until you know your potion plan.
         </p>
 
         <h2>Where to Get Each Material</h2>
         <p>
           Starter ingredients come from simple nodes and chests. Enemy drops
           start filling mid-tier recipes, while bosses and tougher enemies help
-          with late-game Magic totals.
+          with late-game Magic Power totals.
         </p>
 
         <h2>Enemy Drops</h2>
@@ -118,7 +125,7 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-materials/"
         <p>
           Blueberry, Seagull Egg, and Withered Mushroom are enough to learn the
           basic crafting flow. Move into enemy drops once you need higher Magic
-          values.
+          Power targets.
         </p>
 
         <h2>Which Materials to Keep</h2>
@@ -140,7 +147,7 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-materials/"
         <h2>Use Materials in Potions</h2>
         <p>
           After checking drop sources, open the <a href="/wizard-alchemy-potions/">Potions Guide</a>
-          to match materials with Magic value targets.
+          to match materials with Magic Power targets.
         </p>
         <p>
           <a href={officialLinks.sourceBloxMaterials} rel="nofollow">Community material data source</a>

@@ -22,7 +22,7 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!
         <p class="eyebrow">Crafting guide</p>
         <h1>Wizard Alchemy Potions Guide</h1>
         <p class="lead">
-          Potions turn materials into spells. Track Magic value targets, choose
+          Potions turn materials into spells. Track Magic Power targets, choose
           starter potions first, and refine only the potions that support your
           farming or damage route.
         </p>
@@ -57,15 +57,17 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!
         <ol>
           <li>Collect materials from nodes, enemies, bosses, or chests.</li>
           <li>Open the Alchemy table.</li>
-          <li>Add materials until the total Magic value matches your target range.</li>
+          <li>Add materials until the total Magic Power matches your target range.</li>
           <li>Brew the potion and use it to unlock or improve spells.</li>
         </ol>
 
-        <h2>Potion Magic Value Explained</h2>
+        <h2>Potion Magic Power Explained</h2>
         <p>
-          Magic value is the most important crafting number. If your total is
+          Magic Power is the most important crafting number. If your total is
           too low, you will stay in starter potion ranges. If it is too high or
           uses the wrong materials, you may miss the potion route you wanted.
+          Some players may refer to this value as Magic Score, but this guide
+          uses Magic Power consistently.
         </p>
 
         <h2>All Wizard Alchemy Potions</h2>
@@ -74,7 +76,7 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!
           <thead>
             <tr>
               <th scope="col">Potion</th>
-              <th scope="col">Magic Value</th>
+              <th scope="col">Magic Power</th>
               <th scope="col">Stage</th>
               <th scope="col">Best Use</th>
             </tr>
@@ -96,7 +98,7 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!
         <h2>Best Starter Potions</h2>
         <p>
           Wind Blade, Rock Blast, and Ice Spike are the first targets to learn
-          because their Magic values are reachable with common starter
+          because their Magic Power targets are reachable with common starter
           materials.
         </p>
 
@@ -131,7 +133,13 @@ const page = pages.find((item) => item.pathname === "/wizard-alchemy-potions/")!
         <h2>Next Feature: Potion Calculator</h2>
         <p>
           The planned tool page will let players choose a target potion, enter
-          available materials, and see whether their Magic value is enough.
+          available materials, and see whether their Magic Power is enough.
+        </p>
+
+        <h2>Unverified Potion Names</h2>
+        <p>
+          One mid-game potion name is still being checked. We will add it to the
+          main table after verifying the exact in-game spelling.
         </p>
 
         <h2>More Guides</h2>

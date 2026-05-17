@@ -31,15 +31,16 @@ const activeCodes = codes.filter((code) => code.status === "Working");
           <span class="badge">Last checked: {lastCheckedLabel}</span>
           <span class="badge">2 working codes</span>
         </div>
+        <h2 class="table-heading">Active Wizard Alchemy Codes</h2>
         <CodeTable codes={activeCodes} />
       </div>
       <aside class="hero-visual" aria-label="Wizard Alchemy next steps">
-        <p class="eyebrow">After redeeming</p>
+        <p class="eyebrow">Next steps</p>
         <ul class="quick-list">
-          <li><span>Spend rerolls</span><strong>After checking tiers</strong></li>
-          <li><span>Start guide</span><strong>Beginner route</strong></li>
-          <li><span>Crafting</span><strong>Potions and materials</strong></li>
-          <li><span>Updates</span><strong>Discord and Roblox page</strong></li>
+          <li><span>Check races</span><strong>Before rerolls</strong></li>
+          <li><span>Follow the route</span><strong>Beginner Guide</strong></li>
+          <li><span>Plan spells</span><strong>Potions Guide</strong></li>
+          <li><span>Keep rare drops</span><strong>Materials Guide</strong></li>
         </ul>
       </aside>
     </div>
@@ -86,8 +87,8 @@ const activeCodes = codes.filter((code) => code.status === "Working");
           they appear on an official source or can be tested in-game.
         </p>
         <p class="source-note">
-          Source check: official Roblox page, current PCGamesN and Destructoid
-          code coverage, plus community wiki pages were reviewed on {lastCheckedLabel}.
+          We check codes against the official Roblox game page and current
+          community reports before listing them as working.
         </p>
 
         <h2>What Is Wizard Alchemy?</h2>
@@ -100,10 +101,27 @@ const activeCodes = codes.filter((code) => code.status === "Working");
 
         <h2>What to Do After Redeeming Codes</h2>
         <p>
-          Do not spend every Race Reroll blindly. Before using your rerolls,
-          check the <a href="/wizard-alchemy-race-tier-list/">Wizard Alchemy Race Tier List</a>
-          so you know which races are worth keeping.
+          Do not spend every Race Reroll blindly. Use this route after claiming
+          the latest Wizard Alchemy codes:
         </p>
+        <ol>
+          <li>
+            Check the <a href="/wizard-alchemy-race-tier-list/">Wizard Alchemy Race Tier List</a>
+            before spending Race Rerolls.
+          </li>
+          <li>
+            Follow the <a href="/wizard-alchemy-beginner-guide/">Wizard Alchemy Beginner Guide</a>
+            if you are new to the game.
+          </li>
+          <li>
+            Use the <a href="/wizard-alchemy-potions/">Wizard Alchemy Potions Guide</a>
+            to plan your first spell route.
+          </li>
+          <li>
+            Check the <a href="/wizard-alchemy-materials/">Wizard Alchemy Materials Guide</a>
+            before selling rare drops.
+          </li>
+        </ol>
 
         <h2>More Wizard Alchemy Guides</h2>
         <GuideLinks />

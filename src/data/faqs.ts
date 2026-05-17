@@ -71,7 +71,7 @@ export const potionFaqs = [
   {
     question: "How do potions work in Wizard Alchemy?",
     answer:
-      "Potions are brewed from materials. The total Magic Power of the selected materials affects which potion tier you can reach."
+      "Potions are brewed from materials. The total Magic Power of the selected materials affects which potion route you can reach."
   },
   {
     question: "How many materials can I use?",
@@ -89,7 +89,7 @@ export const materialFaqs = [
   {
     question: "Where do materials come from?",
     answer:
-      "Materials come from gathering nodes, enemies, bosses, and chests. The best route depends on which potion Magic target you are chasing."
+      "Materials come from gathering nodes, enemies, bosses, and chests. The best route depends on which potion Magic Power target you are chasing."
   },
   {
     question: "Should I sell materials?",

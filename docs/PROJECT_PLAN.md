@@ -139,17 +139,17 @@ redeem codes -> tutorial -> materials -> potions -> spells -> rerolls
 
 - 选择目标 potion
 - 输入已有材料
-- 计算 Magic value 是否足够
+- 计算 Magic Power 是否足够
 - 给出材料组合建议
 
 ### Materials Guide
 
-作用：覆盖材料、掉落、Magic Score、keep or sell 等长尾词。
+作用：覆盖材料、掉落、Magic Power、keep or sell 等长尾词。
 
 表格字段：
 
 ```text
-Material | Magic Score | How to Get | Best Use | Keep or Sell
+Material | Type | Magic Power | Source | Enemy / Node | Best Use | Keep or Sell | Notes
 ```
 
 ### Discord / Trello / Wiki
